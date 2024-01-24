@@ -1,0 +1,6 @@
+.searchInput {
+	position: relative;
+	font-size: 1.2rem;
+	padding: 0.5rem;
+	width: var(--search-bar-width);
+}
