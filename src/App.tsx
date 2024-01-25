@@ -10,7 +10,7 @@ function App() {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<h1>PokeStats</h1>
+			<h1>PokéStats</h1>
 			<SearchBar setPokemonUrl={setPokemonUrl} />
 			{pokemonUrl !== '' ? <PokemonInfo url={pokemonUrl} /> : null}
 		</QueryClientProvider>
