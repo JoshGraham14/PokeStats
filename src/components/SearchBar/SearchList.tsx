@@ -33,8 +33,9 @@ export const SearchList = (props: Props) => {
 		return <p>Error Loading Pokemon</p>
 	}
 
-	// Figure out how to get focus working properly
+	// TODO: Fix focus
 	// If focus is lost (isFoused === false), then the list should disappear
+	// Due to render order, the list disappears before the onClick event can be registered
 
 	return (
 		<ul className={styles.searchList}>
