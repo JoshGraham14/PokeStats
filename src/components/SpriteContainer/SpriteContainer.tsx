@@ -11,7 +11,7 @@ export const SpriteContainer = (props: Props) => {
 	const { name, sprites } = props
 
 	return (
-		<div className={styles.spriteContainer}>
+		<div className={`dashboardContainer ${styles.spriteContainer}`}>
 			<h3>Sprites</h3>
 			<span>
 				<img
