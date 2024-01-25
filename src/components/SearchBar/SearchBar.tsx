@@ -85,20 +85,27 @@ export const SearchBar = (props: Props) => {
 	}
 
 	return (
-		<div onFocus={handleFocusChange} onBlur={handleFocusChange}>
-			<input
-				type='text'
-				ref={searchBar}
-				className={styles.searchInput}
-				onChange={handleChange}
-				value={selected ? capitalize(selected.name) : searchTerm}
-			/>
-			<button
-				className={styles.searchBtn}
-				onClick={() => handleSubmit(null)}
-			>
-				Search
-			</button>
+		<div
+			className={styles.wrapper}
+			onFocus={handleFocusChange}
+			onBlur={handleFocusChange}
+		>
+			<span className={styles.searchForm}>
+				<input
+					type='text'
+					name='search'
+					ref={searchBar}
+					className={styles.searchInput}
+					onChange={handleChange}
+					value={selected ? capitalize(selected.name) : searchTerm}
+				/>
+				<button
+					className={styles.searchBtn}
+					onClick={() => handleSubmit(null)}
+				>
+					Search
+				</button>
+			</span>
 			{selected ? null : (
 				<SearchList
 					data={filteredData}

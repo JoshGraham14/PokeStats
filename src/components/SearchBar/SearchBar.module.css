@@ -1,11 +1,23 @@
-div {
+.wrapper {
+	position: relative;
 	--padding: 0.5em;
 	--border-radius: 0.5rem;
 	--font-size: 1.2rem;
 }
 
+.searchForm {
+	display: flex;
+	align-items: center;
+	width: 500px;
+}
+
+@media (max-width: 500px) {
+	.searchForm {
+		width: 330px;
+	}
+}
+
 .searchInput {
-	position: relative;
 	font-size: var(--font-size);
 	padding: var(--padding);
 	border: var(--border-width) solid var(--clr-foreground);
