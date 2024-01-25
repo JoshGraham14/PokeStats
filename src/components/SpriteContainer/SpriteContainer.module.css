@@ -1,0 +1,14 @@
+.spriteContainer {
+	display: flex;
+	width: 15rem;
+	background-color: var(--clr-input-bg);
+	border: solid 0.15em var(--clr-foreground);
+	border-radius: 0.5rem;
+	flex-direction: column;
+	place-items: center;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
