@@ -7,11 +7,16 @@ import { useQuery } from 'react-query'
 import { fetchAllPokemon } from '../../api'
 import { capitalize } from '../../util'
 
-export const SearchBar = () => {
+interface Props {
+	setPokemonUrl: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const SearchBar = (props: Props) => {
 	const searchBar = createRef<HTMLInputElement>()
 	const [searchTerm, setSearchTerm] = useState('')
-	const [selected, setSelected] =
-		useState<React.SetStateAction<PokemonPreview | undefined>>(undefined)
+	const [selected, setSelected] = useState<PokemonPreview | undefined>(
+		undefined
+	)
 	const downPress = useKeyPress('ArrowDown', searchBar)
 	const upPress = useKeyPress('ArrowUp', searchBar)
 	const enterPress = useKeyPress('Enter', searchBar)
@@ -23,6 +28,7 @@ export const SearchBar = () => {
 
 	const { data, isLoading, error } = useQuery('pokemon', fetchAllPokemon)
 
+	const { setPokemonUrl } = props
 	let filteredData: PokemonPreview[] = []
 
 	if (data) {
@@ -61,8 +67,8 @@ export const SearchBar = () => {
 	}, [upPress])
 	useEffect(() => {
 		if (filteredData.length && enterPress) {
-			console.log('setting selected')
 			setSelected(filteredData[cursor])
+			handleSubmit(filteredData[cursor])
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [cursor, enterPress])
@@ -73,6 +79,11 @@ export const SearchBar = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [hovered])
 
+	const handleSubmit = (pokemon: PokemonPreview | null) => {
+		const url = (pokemon ?? selected)?.url
+		setPokemonUrl(url ?? '')
+	}
+
 	return (
 		<div onFocus={handleFocusChange} onBlur={handleFocusChange}>
 			<input
@@ -82,7 +93,7 @@ export const SearchBar = () => {
 				onChange={handleChange}
 				value={selected ? capitalize(selected.name) : searchTerm}
 			/>
-			<button>Search</button>
+			<button onClick={() => handleSubmit(null)}>Search</button>
 			{selected ? null : (
 				<SearchList
 					data={filteredData}
@@ -92,6 +103,7 @@ export const SearchBar = () => {
 					cursor={cursor}
 					setSelected={setSelected}
 					setHovered={setHovered}
+					handleSubmit={handleSubmit}
 				/>
 			)}
 		</div>

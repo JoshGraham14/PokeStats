@@ -12,6 +12,7 @@ interface Props {
 		React.SetStateAction<PokemonPreview | undefined>
 	>
 	setHovered: React.Dispatch<React.SetStateAction<PokemonPreview | undefined>>
+	handleSubmit: (pokemon: PokemonPreview) => void
 }
 
 export const SearchList = (props: Props) => {
@@ -23,6 +24,7 @@ export const SearchList = (props: Props) => {
 		cursor,
 		setSelected,
 		setHovered,
+		handleSubmit,
 	} = props
 
 	if (isLoading) {
@@ -45,6 +47,7 @@ export const SearchList = (props: Props) => {
 					className={index === cursor ? styles.active : ''}
 					onClick={() => {
 						setSelected(pokemon)
+						handleSubmit(pokemon)
 					}}
 					onMouseEnter={() => setHovered(pokemon)}
 					onMouseLeave={() => setHovered(undefined)}
