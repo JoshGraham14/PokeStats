@@ -1,6 +1,5 @@
 import styles from './BaseStats.module.css'
 import type { Pokemon } from '../../types'
-import { capitalize } from '../../util'
 
 const statNames = new Map<string, string>([
 	['hp', 'HP'],
