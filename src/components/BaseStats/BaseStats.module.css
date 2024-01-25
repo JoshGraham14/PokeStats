@@ -1,0 +1,44 @@
+.statsContainer {
+	max-width: 30rem;
+}
+
+.statBarWrapper {
+	flex: 1;
+}
+
+.statBar {
+	background-color: rgb(212, 198, 0);
+	height: 1rem;
+	border-radius: 0.15rem;
+}
+
+.green {
+	background-color: rgb(35, 216, 35);
+}
+
+.red {
+	background-color: rgb(201, 55, 55);
+}
+
+ul {
+	list-style: none;
+	text-align: left;
+	padding: 0;
+	font-weight: 500;
+}
+
+li {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	margin: 0;
+}
+
+li > span {
+	width: 3ch;
+	text-align: right;
+}
+
+label {
+	width: 8ch;
+}
