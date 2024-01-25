@@ -1,6 +1,22 @@
+div {
+	--padding: 0.5em;
+	--border-radius: 0.5rem;
+	--font-size: 1.2rem;
+}
+
 .searchInput {
 	position: relative;
-	font-size: 1.2rem;
-	padding: 0.5rem;
+	font-size: var(--font-size);
+	padding: var(--padding);
+	border: var(--border-width) solid var(--clr-foreground);
 	width: var(--search-bar-width);
+	border-radius: var(--border-radius);
+}
+
+.searchBtn {
+	font-size: var(--font-size);
+	padding: var(--padding);
+	margin-left: var(--padding);
+	border: var(--border-width) solid var(--clr-foreground);
+	border-radius: var(--border-radius);
 }

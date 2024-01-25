@@ -1,4 +1,4 @@
-.searchList {
+.searchList:not(:empty) {
 	position: absolute;
 	z-index: 100;
 	padding: 0;
@@ -6,16 +6,32 @@
 	list-style: none;
 	text-align: left;
 	width: var(--search-bar-width);
-	background-color: rebeccapurple;
+	border: 0.15em solid var(--clr-foreground);
+	border-radius: 0.5rem;
+	margin-block: 0.5em;
+}
+
+.searchList:empty {
+	border: none;
 }
 
 .searchList li {
 	padding: 0.5rem;
-	background-color: rgb(156, 113, 199);
+	background-color: var(--clr-input-bg);
+}
+
+.searchList li:first-child {
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+}
+
+.searchList li:last-child {
+	border-bottom-left-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
 }
 
 .active {
-	background-color: red !important;
+	background-color: var(--clr-active) !important;
 	cursor: pointer;
 }
 

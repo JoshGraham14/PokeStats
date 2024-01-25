@@ -93,7 +93,12 @@ export const SearchBar = (props: Props) => {
 				onChange={handleChange}
 				value={selected ? capitalize(selected.name) : searchTerm}
 			/>
-			<button onClick={() => handleSubmit(null)}>Search</button>
+			<button
+				className={styles.searchBtn}
+				onClick={() => handleSubmit(null)}
+			>
+				Search
+			</button>
 			{selected ? null : (
 				<SearchList
 					data={filteredData}
