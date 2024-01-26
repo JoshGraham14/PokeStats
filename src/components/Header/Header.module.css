@@ -1,0 +1,29 @@
+header {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1em;
+	align-items: center;
+	width: 100vw;
+	padding-inline: 1rem;
+}
+
+header > h1 {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+	color: var(--clr-foreground);
+}
+
+@media (max-width: 500px) {
+	header {
+		grid-template-columns: 1fr;
+	}
+
+	header > h1 {
+		text-align: center;
+	}
+}
