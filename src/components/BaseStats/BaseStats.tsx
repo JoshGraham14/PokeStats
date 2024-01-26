@@ -30,11 +30,11 @@ export const BaseStats = (props: Props) => {
 
 	return (
 		<div className={`dashboardContainer ${styles.statsContainer}`}>
+			<h3>Base Stats</h3>
 			{isLoading ? (
 				<BaseStatsSkeleton />
 			) : (
 				<>
-					<h3>Base Stats</h3>
 					<ul>
 						{stats.map(stat => (
 							<li key={stat.stat.name}>
