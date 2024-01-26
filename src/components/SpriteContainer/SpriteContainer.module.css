@@ -21,6 +21,6 @@ img {
 .skeletonFlex {
 	display: flex;
 	gap: 3rem;
-	margin-top: 2rem;
-	margin-bottom: 3rem;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
 }
