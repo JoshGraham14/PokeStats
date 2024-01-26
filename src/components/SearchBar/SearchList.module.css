@@ -7,13 +7,21 @@
 	list-style: none;
 	text-align: left;
 	width: var(--search-bar-width);
+	max-height: 20rem;
 	border: 0.15em solid var(--clr-foreground);
 	border-radius: 0.5rem;
 	margin-inline: none;
 	margin-block: 0.5em;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .searchList:empty {
+	position: absolute;
+	left: 0;
+	z-index: 100;
+	font-size: 1.2rem;
+	margin-block: 0.5em;
 	border: none;
 }
 
