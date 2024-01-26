@@ -1,12 +1,14 @@
+import { capitalize } from '../../util'
 import { SearchBar } from '../SearchBar/SearchBar'
 import './Header.module.css'
 
 interface Props {
 	setPokemonUrl: React.Dispatch<React.SetStateAction<string>>
+	name: string
 }
 
 export const Header = (props: Props) => {
-	const { setPokemonUrl } = props
+	const { setPokemonUrl, name } = props
 
 	return (
 		<header>
@@ -16,6 +18,7 @@ export const Header = (props: Props) => {
 				</a>
 			</h1>
 			<SearchBar setPokemonUrl={setPokemonUrl} />
+			<h1>{capitalize(name)}</h1>
 		</header>
 	)
 }
