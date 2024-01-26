@@ -94,6 +94,7 @@ export const SearchBar = (props: Props) => {
 				<input
 					type='text'
 					name='search'
+					placeholder='Search for a Pokemon'
 					ref={searchBar}
 					className={styles.searchInput}
 					onChange={handleChange}
