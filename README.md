@@ -1,6 +1,6 @@
-# PokeStats
+# PokéStats
 
-This is meant to be similar in content to [Pokémon Database](https://pokemondb.net/) using the [PokéAPI](https://pokeapi.co/), except only using the data that I think is most important :)
+A resource to view cool stats about your favourite Pokémon! Built using [PokeAPI](https://pokeapi.co/)
 
 ## React + TypeScript + Vite
 
