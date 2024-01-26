@@ -4,17 +4,30 @@ import styles from './PokemonInfo.module.css'
 import { capitalize } from '../../util'
 import { SpriteContainer } from '../SpriteContainer/SpriteContainer'
 import { BaseStats } from '../BaseStats/BaseStats'
+import { useEffect } from 'react'
 
-export const PokemonInfo = (props: { url: string }) => {
-	const { url } = props
+interface Props {
+	url: string
+	setName: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const PokemonInfo = (props: Props) => {
+	const { url, setName } = props
 
 	const { data, isLoading, error } = useQuery(url, () => fetchPokemon(url))
 
-	if (error) return <div>Something went wrong</div>
+	useEffect(() => {
+		if (data) {
+			setName(data.name)
+		}
+	}, [data, setName])
+
+	if (error) {
+		return <div>Something went wrong</div>
+	}
 
 	return (
 		<div className={styles.infoWrapper}>
-			<h2>{data ? capitalize(data.name) : null}</h2>
 			<SpriteContainer
 				name={data ? data.name : ''}
 				sprites={data ? data.sprites : null}
