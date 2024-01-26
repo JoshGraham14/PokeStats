@@ -2,15 +2,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { BaseStatsSkeleton } from './BaseStatsSkeleton'
 import styles from './BaseStats.module.css'
 import type { Pokemon } from '../../types'
-
-const statNames = new Map<string, string>([
-	['hp', 'HP'],
-	['attack', 'Attack'],
-	['defense', 'Defense'],
-	['special-attack', 'Sp. Atk'],
-	['special-defense', 'Sp. Def'],
-	['speed', 'Speed'],
-])
+import { statNames } from '../../util'
 
 interface Props {
 	stats: Pokemon['stats']
@@ -35,7 +27,7 @@ export const BaseStats = (props: Props) => {
 				<BaseStatsSkeleton />
 			) : (
 				<>
-					<ul>
+					<ul className={styles.statsWrapper}>
 						{stats.map(stat => (
 							<li key={stat.stat.name}>
 								<label htmlFor={stat.stat.name}>
