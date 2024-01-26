@@ -7,13 +7,16 @@ import { Header } from './components/Header/Header'
 
 function App() {
 	const [pokemonUrl, setPokemonUrl] = useState<string>('')
+	const [name, setName] = useState<string>('')
 	const queryClient = new QueryClient()
 
 	return (
 		<SkeletonTheme baseColor='#202020' highlightColor='#444'>
 			<QueryClientProvider client={queryClient}>
-				<Header setPokemonUrl={setPokemonUrl} />
-				{pokemonUrl !== '' ? <PokemonInfo url={pokemonUrl} /> : null}
+				<Header setPokemonUrl={setPokemonUrl} name={name} />
+				{pokemonUrl !== '' ? (
+					<PokemonInfo url={pokemonUrl} setName={setName} />
+				) : null}
 			</QueryClientProvider>
 		</SkeletonTheme>
 	)
