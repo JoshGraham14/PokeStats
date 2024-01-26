@@ -1,4 +1,3 @@
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { BaseStatsSkeleton } from './BaseStatsSkeleton'
 import styles from './BaseStats.module.css'
@@ -44,6 +43,13 @@ export const BaseStats = (props: Props) => {
 								</label>
 								<span>{stat.base_stat}</span>
 								<div className={styles.statBarWrapper}>
+									{/* This is super ugly, but basically each
+									stat bar is being drawn on to the screen.
+									If it's the max stat, it's green.
+									If it's the min stat, it's red.
+									All other stats are yellow by default
+									the width is the stat scaled to be between
+									0 to 100 % */}
 									<div
 										id={stat.stat.name}
 										className={`${styles.statBar} ${
