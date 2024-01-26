@@ -1,7 +1,6 @@
 import { useQuery } from 'react-query'
 import { fetchPokemon } from '../../api'
 import styles from './PokemonInfo.module.css'
-import { capitalize } from '../../util'
 import { SpriteContainer } from '../SpriteContainer/SpriteContainer'
 import { BaseStats } from '../BaseStats/BaseStats'
 import { useEffect } from 'react'
