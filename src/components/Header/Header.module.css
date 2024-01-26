@@ -38,6 +38,8 @@ a {
 @media (max-width: 500px) {
 	header {
 		grid-template-columns: 1fr;
+		padding-top: 1em;
+		gap: 0;
 	}
 
 	header > h1 {
@@ -46,6 +48,7 @@ a {
 
 	header > div {
 		grid-row: 2;
+		margin: 1em auto;
 	}
 
 	header > h1:last-child {
