@@ -12,7 +12,7 @@
 	--clr-foreground: hsl(0, 0%, 90%);
 	--clr-background: hsl(0, 0%, 20%);
 	--clr-input-bg: hsl(0, 0%, 10%);
-	--clr-active: hsl(278, 100%, 40%);
+	--clr-active: hsl(0, 57%, 30%);
 
 	--search-bar-width: 100%;
 	--border-width: 0.15em;
@@ -29,14 +29,14 @@
 
 body {
 	margin: 0;
+	padding: 0;
 	display: flex;
-	place-items: justify-center;
 	min-height: 100vh;
 }
 
 #root {
-	padding: 1rem;
-	max-width: 800px;
+	padding: 0;
+	margin: 0;
 }
 
 h1 {
@@ -44,6 +44,11 @@ h1 {
 	margin: 0.5em;
 	padding: 0;
 	line-height: 1.1;
+}
+
+h3 {
+	font-size: 2em;
+	margin: 0.5em;
 }
 
 input {
@@ -73,7 +78,13 @@ button:focus-visible {
 	background-color: var(--clr-input-bg);
 	border: solid 0.15em var(--clr-foreground);
 	border-radius: 0.5rem;
-	padding: 1em;
+	padding-inline: 1em;
+}
+
+@media (max-width: 500px) {
+	.dashboardContainer {
+		width: 100%;
+	}
 }
 
 @media (prefers-color-scheme: light) {
@@ -81,6 +92,6 @@ button:focus-visible {
 		--clr-foreground: hsl(0, 0%, 20%);
 		--clr-background: hsl(0, 0%, 90%);
 		--clr-input-bg: hsl(0, 0%, 100%);
-		--clr-active: hsl(278, 100%, 80%);
+		--clr-active: hsl(0, 57%, 80%);
 	}
 }
