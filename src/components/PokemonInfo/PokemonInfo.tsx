@@ -10,14 +10,17 @@ export const PokemonInfo = (props: { url: string }) => {
 
 	const { data, isLoading, error } = useQuery(url, () => fetchPokemon(url))
 
-	if (isLoading || data === undefined) return <div>Loading...</div>
 	if (error) return <div>Something went wrong</div>
 
 	return (
 		<div className={styles.infoWrapper}>
-			<h2>{capitalize(data.name)}</h2>
-			<SpriteContainer name={data.name} sprites={data.sprites} />
-			<BaseStats stats={data.stats} />
+			<h2>{data ? capitalize(data.name) : null}</h2>
+			<SpriteContainer
+				name={data ? data.name : ''}
+				sprites={data ? data.sprites : null}
+				isLoading={isLoading}
+			/>
+			<BaseStats stats={data ? data.stats : []} isLoading={isLoading} />
 		</div>
 	)
 }

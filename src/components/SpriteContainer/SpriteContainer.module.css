@@ -1,11 +1,25 @@
 .spriteContainer {
 	display: flex;
+	gap: 1rem;
 	width: 15rem;
 	flex-direction: column;
 	place-items: center;
 }
 
+.spriteContainer > span {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+}
+
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+.skeletonFlex {
+	display: flex;
+	gap: 3rem;
+	margin-top: 2rem;
+	margin-bottom: 3rem;
 }
