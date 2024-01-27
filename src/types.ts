@@ -11,8 +11,10 @@ export interface PokemonPreview {
 }
 
 export interface Ability {
-	name: string
-	url: string
+	ability: {
+		name: string
+		url: string
+	}
 	is_hidden: boolean
 	slot: number
 }
