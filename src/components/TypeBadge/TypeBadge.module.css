@@ -1,0 +1,17 @@
+.typeBadge {
+	display: flex;
+	flex-wrap: nowrap;
+	place-items: center;
+	gap: 0.3em;
+	padding: 0.05em 0.6em;
+	border-radius: 2rem;
+}
+
+.typeBadge > img {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.typeBadge > p {
+	margin: 0;
+}
