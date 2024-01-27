@@ -4,6 +4,7 @@ import styles from './PokemonInfo.module.css'
 import { SpriteContainer } from '../SpriteContainer/SpriteContainer'
 import { BaseStats } from '../BaseStats/BaseStats'
 import { useEffect } from 'react'
+import { GeneralInfo } from '../GeneralInfo/GeneralInfo'
 
 interface Props {
 	url: string
@@ -33,6 +34,7 @@ export const PokemonInfo = (props: Props) => {
 				isLoading={isLoading}
 			/>
 			<BaseStats stats={data ? data.stats : []} isLoading={isLoading} />
+			<GeneralInfo isLoading={isLoading} pokemon={data} />
 		</div>
 	)
 }
