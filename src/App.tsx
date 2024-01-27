@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import './App.css'
 import { PokemonInfo } from './components/PokemonInfo/PokemonInfo'
@@ -7,9 +7,16 @@ import { Header } from './components/Header/Header'
 
 function App() {
 	const [pokemonUrl, setPokemonUrl] = useState<string>('')
+	const [detailUrl, setDetailUrl] = useState<string>('')
 	const [name, setName] = useState<string>('')
 	const queryClient = new QueryClient()
 	const lightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+
+	useEffect(() => {
+		if (name) {
+			setDetailUrl(`https://pokeapi.co/api/v2/pokemon-species/${name}/`)
+		}
+	}, [name])
 
 	return (
 		<SkeletonTheme
@@ -19,7 +26,11 @@ function App() {
 			<QueryClientProvider client={queryClient}>
 				<Header setPokemonUrl={setPokemonUrl} name={name} />
 				{pokemonUrl !== '' ? (
-					<PokemonInfo url={pokemonUrl} setName={setName} />
+					<PokemonInfo
+						url={pokemonUrl}
+						detailUrl={detailUrl}
+						setName={setName}
+					/>
 				) : null}
 			</QueryClientProvider>
 		</SkeletonTheme>
