@@ -9,9 +9,13 @@ function App() {
 	const [pokemonUrl, setPokemonUrl] = useState<string>('')
 	const [name, setName] = useState<string>('')
 	const queryClient = new QueryClient()
+	const lightMode = window.matchMedia('(prefers-color-scheme: light)').matches
 
 	return (
-		<SkeletonTheme baseColor='#202020' highlightColor='#444'>
+		<SkeletonTheme
+			baseColor={lightMode ? '#cecece' : '#202020'}
+			highlightColor={lightMode ? '#e2e2e2' : '#444'}
+		>
 			<QueryClientProvider client={queryClient}>
 				<Header setPokemonUrl={setPokemonUrl} name={name} />
 				{pokemonUrl !== '' ? (
