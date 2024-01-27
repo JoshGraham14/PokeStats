@@ -1,5 +1,6 @@
 import { Pokemon } from '../../types'
-import { capitalize, statNames } from '../../util'
+import { statNames } from '../../util'
+import { AbilityInfo } from '../AbilityInfo/AbilityInfo'
 import { TypeBadge } from '../TypeBadge/TypeBadge'
 import styles from './GeneralInfo.module.css'
 
@@ -49,15 +50,11 @@ export const GeneralInfo = (props: Props) => {
 						<label htmlFor='abilities'>Abilities: </label>
 						<span className={styles.itemList}>
 							{pokemon?.abilities.map(ability => {
-								return ability.is_hidden ? (
-									<p key={ability.ability.url}>{`${capitalize(
-										ability.ability.name
-									)}
-                                                (hidden)`}</p>
-								) : (
-									<p key={ability.ability.url}>
-										{capitalize(ability.ability.name)}
-									</p>
+								return (
+									<AbilityInfo
+										key={ability.ability.url}
+										ability={ability}
+									/>
 								)
 							})}
 						</span>

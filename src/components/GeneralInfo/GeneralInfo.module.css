@@ -15,11 +15,11 @@
 
 .infoWrapper > li > span {
 	display: flex;
-	flex-grow: 1;
+	/* flex-grow: 1; */
 }
 
 .itemList {
-	display: flex;
+	display: inline-flex;
 	flex-direction: column;
 }
 
