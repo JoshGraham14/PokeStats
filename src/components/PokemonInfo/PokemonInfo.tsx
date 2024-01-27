@@ -1,10 +1,11 @@
 import { useQuery } from 'react-query'
-import { fetchPokemon } from '../../api'
-import styles from './PokemonInfo.module.css'
+import { fetchResource } from '../../api'
 import { SpriteContainer } from '../SpriteContainer/SpriteContainer'
 import { BaseStats } from '../BaseStats/BaseStats'
 import { useEffect } from 'react'
 import { GeneralInfo } from '../GeneralInfo/GeneralInfo'
+import styles from './PokemonInfo.module.css'
+import type { Pokemon } from '../../types'
 
 interface Props {
 	url: string
@@ -14,7 +15,9 @@ interface Props {
 export const PokemonInfo = (props: Props) => {
 	const { url, setName } = props
 
-	const { data, isLoading, error } = useQuery(url, () => fetchPokemon(url))
+	const { data, isLoading, error } = useQuery(url, () =>
+		fetchResource<Pokemon>(url)
+	)
 
 	useEffect(() => {
 		if (data) {

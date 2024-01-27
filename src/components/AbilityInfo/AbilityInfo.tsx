@@ -1,8 +1,9 @@
 import { useQuery } from 'react-query'
-import { fetchAbility } from '../../api'
+import { fetchResource } from '../../api'
 import { Ability } from '../../types'
 import { capitalize } from '../../util'
 import styles from './AbilityInfo.module.css'
+import type { AbilityDetails } from '../../types'
 
 interface Props {
 	ability: Ability
@@ -11,7 +12,7 @@ interface Props {
 export const AbilityInfo = (props: Props) => {
 	const { ability } = props
 	const { data } = useQuery(ability.ability.url, () =>
-		fetchAbility(ability.ability.url)
+		fetchResource<AbilityDetails>(ability.ability.url)
 	)
 
 	const description =

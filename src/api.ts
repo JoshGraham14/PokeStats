@@ -14,23 +14,14 @@ export const fetchAllPokemon = async (): Promise<PokemonPreview[]> => {
 	return data.results
 }
 
-export const fetchPokemon = async (url: string): Promise<Pokemon> => {
+export const fetchResource = async <ResourceType>(
+	url: string
+): Promise<ResourceType> => {
 	const response = await fetch(url)
 	if (!response.ok) {
 		throw new Error(response.statusText)
 	}
 
-	const data: Pokemon = await response.json()
-	return data
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const fetchAbility = async (url: string): Promise<AbilityDetails> => {
-	const response = await fetch(url)
-	if (!response.ok) {
-		throw new Error(response.statusText)
-	}
-
-	const data: AbilityDetails = await response.json()
+	const data: ResourceType = await response.json()
 	return data
 }
