@@ -1,0 +1,34 @@
+.generalInfoContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.generalInfoContainer li {
+	list-style: none;
+	align-items: flex-start;
+}
+
+.infoWrapper label {
+	width: 9ch;
+	text-align: right;
+}
+
+.infoWrapper > li > span {
+	display: flex;
+	flex-grow: 1;
+}
+
+.itemList {
+	display: flex;
+	flex-direction: column;
+}
+
+.itemList > p {
+	margin: 0;
+}
+
+.types {
+	align-items: center;
+	gap: 0.5em;
+	color: white;
+}
