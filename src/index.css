@@ -128,8 +128,9 @@ ul > li:not(:last-child)::after {
 	/* Position the tooltip */
 	position: absolute;
 	z-index: 1;
-	top: -1em;
-	left: 110%;
+	bottom: 110%;
+	left: 50%;
+	margin-left: -5em;
 }
 
 .tooltip:hover .tooltip-text {
@@ -140,12 +141,12 @@ ul > li:not(:last-child)::after {
 .tooltip .tooltip-text::after {
 	content: ' ';
 	position: absolute;
-	top: 50%;
-	right: 100%; /* To the left of the tooltip */
-	margin-top: -5px;
+	top: 100%; /* At the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
 	border-width: 5px;
 	border-style: solid;
-	border-color: transparent var(--clr-foreground) transparent transparent;
+	border-color: var(--clr-foreground) transparent transparent transparent;
 }
 
 @media (max-width: 500px) {

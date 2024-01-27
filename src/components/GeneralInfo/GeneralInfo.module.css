@@ -1,6 +1,7 @@
 .generalInfoContainer {
 	display: flex;
 	flex-direction: column;
+	max-width: 25rem;
 }
 
 .generalInfoContainer li {
@@ -15,7 +16,6 @@
 
 .infoWrapper > li > span {
 	display: flex;
-	/* flex-grow: 1; */
 }
 
 .itemList {
