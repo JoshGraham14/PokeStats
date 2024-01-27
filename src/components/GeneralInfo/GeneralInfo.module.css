@@ -32,3 +32,18 @@
 	gap: 0.5em;
 	color: white;
 }
+
+.male {
+	color: rgb(49, 194, 252);
+	margin-left: 0.3em;
+	margin-right: 1em;
+	text-shadow: 0.35px 0 rgb(49, 194, 252), 0 -0.35px rgb(49, 194, 252),
+		0 0.35px rgb(49, 194, 252), -0.35px 0 rgb(49, 194, 252);
+}
+
+.female {
+	color: rgb(252, 49, 161);
+	margin-left: 0.2em;
+	text-shadow: 0.35px 0 rgb(252, 49, 161), 0 -0.35px rgb(252, 49, 161),
+		0 0.35px rgb(252, 49, 161), -0.35px 0 rgb(252, 49, 161);
+}

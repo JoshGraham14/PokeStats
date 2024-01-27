@@ -1,4 +1,4 @@
-import { Pokemon } from '../../types'
+import PokemonSpecies, { Pokemon } from '../../types'
 import { statNames } from '../../util'
 import { AbilityInfo } from '../AbilityInfo/AbilityInfo'
 import { TypeBadge } from '../TypeBadge/TypeBadge'
@@ -6,19 +6,47 @@ import styles from './GeneralInfo.module.css'
 
 interface Props {
 	pokemon: Pokemon | undefined
+	pokemonDetails: PokemonSpecies | undefined
+	isLoadingDetails: boolean
 	isLoading: boolean
 }
 
 export const GeneralInfo = (props: Props) => {
-	const { pokemon, isLoading } = props
+	const { pokemon, pokemonDetails, isLoading, isLoadingDetails } = props
 
 	return (
 		<div className={`dashboardContainer ${styles.generalInfoContainer}`}>
 			<h3>General info</h3>
-			{isLoading ? (
+			{isLoading || isLoadingDetails ? (
 				<div>Loading...</div>
 			) : (
 				<ul className={styles.infoWrapper}>
+					<li>
+						<label htmlFor='dex-number'>Pokedex: </label>
+						<span id='dex-number'>{pokemon?.id}</span>
+					</li>
+					<li>
+						<label htmlFor='gender'>Gender: </label>
+
+						<span id='gender'>
+							{pokemonDetails?.gender_rate ? (
+								pokemonDetails?.gender_rate === -1 ? (
+									'Genderless'
+								) : (
+									<>
+										{(1 - pokemonDetails?.gender_rate / 8) *
+											100}{' '}
+										<span>%</span>{' '}
+										<span className={styles.male}>♂</span>{' '}
+										{(pokemonDetails?.gender_rate / 8) *
+											100}
+										%{' '}
+										<span className={styles.female}>♀</span>
+									</>
+								)
+							) : null}
+						</span>
+					</li>
 					<li>
 						<label htmlFor='height'>Height:</label>
 						<span id='height'>

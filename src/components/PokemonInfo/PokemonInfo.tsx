@@ -5,39 +5,56 @@ import { BaseStats } from '../BaseStats/BaseStats'
 import { useEffect } from 'react'
 import { GeneralInfo } from '../GeneralInfo/GeneralInfo'
 import styles from './PokemonInfo.module.css'
-import type { Pokemon } from '../../types'
+import type { Pokemon, PokemonSpecies } from '../../types'
 
 interface Props {
 	url: string
+	detailUrl: string
 	setName: React.Dispatch<React.SetStateAction<string>>
 }
 
 export const PokemonInfo = (props: Props) => {
-	const { url, setName } = props
+	const { url, detailUrl, setName } = props
 
-	const { data, isLoading, error } = useQuery(url, () =>
-		fetchResource<Pokemon>(url)
-	)
+	const {
+		data: pokemonData,
+		isLoading: pokemonIsLoading,
+		error: pokemonError,
+	} = useQuery(url, () => fetchResource<Pokemon>(url))
+
+	const {
+		data: detailedData,
+		isLoading: detailedIsLoading,
+		error: detailedError,
+	} = useQuery(detailUrl, () => fetchResource<PokemonSpecies>(detailUrl))
 
 	useEffect(() => {
-		if (data) {
-			setName(data.name)
+		if (pokemonData) {
+			setName(pokemonData.name)
 		}
-	}, [data, setName])
+	}, [pokemonData, setName])
 
-	if (error) {
+	if (pokemonError || detailedError) {
 		return <div>Something went wrong</div>
 	}
 
 	return (
 		<div className={styles.infoWrapper}>
 			<SpriteContainer
-				name={data ? data.name : ''}
-				sprites={data ? data.sprites : null}
-				isLoading={isLoading}
+				name={pokemonData ? pokemonData.name : ''}
+				sprites={pokemonData ? pokemonData.sprites : null}
+				isLoading={pokemonIsLoading}
 			/>
-			<BaseStats stats={data ? data.stats : []} isLoading={isLoading} />
-			<GeneralInfo isLoading={isLoading} pokemon={data} />
+			<BaseStats
+				stats={pokemonData ? pokemonData.stats : []}
+				isLoading={pokemonIsLoading}
+			/>
+			<GeneralInfo
+				isLoading={pokemonIsLoading}
+				pokemon={pokemonData}
+				pokemonDetails={detailedData}
+				isLoadingDetails={detailedIsLoading}
+			/>
 		</div>
 	)
 }
