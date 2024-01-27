@@ -110,6 +110,44 @@ ul > li:not(:last-child)::after {
 	text-align: right;
 }
 
+.tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted var(--clr-foreground);
+}
+
+.tooltip .tooltip-text {
+	visibility: hidden;
+	width: 10em;
+	background-color: var(--clr-foreground);
+	color: var(--clr-background);
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	top: -1em;
+	left: 110%;
+}
+
+.tooltip:hover .tooltip-text {
+	visibility: visible;
+}
+
+/* Tooltip left arrow */
+.tooltip .tooltip-text::after {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	right: 100%; /* To the left of the tooltip */
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent var(--clr-foreground) transparent transparent;
+}
+
 @media (max-width: 500px) {
 	.dashboardContainer {
 		width: 100%;
