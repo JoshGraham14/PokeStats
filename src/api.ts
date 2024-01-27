@@ -1,9 +1,4 @@
-import type {
-	AbilityDetails,
-	APIResponse,
-	PokemonPreview,
-	Pokemon,
-} from './types'
+import type { APIResponse, PokemonPreview } from './types'
 
 export const fetchAllPokemon = async (): Promise<PokemonPreview[]> => {
 	const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=2000')
