@@ -19,6 +19,20 @@ export interface Ability {
 	slot: number
 }
 
+export interface AbilityDetails {
+	flavor_text_entries: {
+		flavor_text: string
+		language: {
+			name: string
+			url: string
+		}
+		version_group: {
+			name: string
+			url: string
+		}
+	}[]
+}
+
 export interface Version {
 	name: string
 	url: string
