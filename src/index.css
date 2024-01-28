@@ -79,6 +79,8 @@ button:focus-visible {
 	border: solid 0.15em var(--clr-foreground);
 	border-radius: 0.5rem;
 	padding-inline: 1em;
+	/* Feel free to overwrite this whenever necessary for specific components */
+	max-height: 22rem;
 }
 
 ul {
