@@ -19,7 +19,7 @@ export const SpriteContainer = (props: Props) => {
 				<SpriteContainerSkeleton />
 			) : (
 				<>
-					<span>
+					<div>
 						{sprites?.front_default ? (
 							<img
 								src={sprites?.front_default}
@@ -33,8 +33,8 @@ export const SpriteContainer = (props: Props) => {
 								alt={`${name}'s back sprite`}
 							/>
 						) : null}
-					</span>
-					<span>
+					</div>
+					<div>
 						{sprites?.front_shiny ? (
 							<img
 								src={sprites?.front_shiny}
@@ -48,7 +48,7 @@ export const SpriteContainer = (props: Props) => {
 								alt={`${name}'s shiny back sprite`}
 							/>
 						) : null}
-					</span>
+					</div>
 				</>
 			)}
 		</div>

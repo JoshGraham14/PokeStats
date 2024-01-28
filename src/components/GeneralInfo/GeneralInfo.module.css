@@ -10,6 +10,10 @@
 	align-items: flex-start;
 }
 
+.infoWrapper {
+	margin-top: 0;
+}
+
 .infoWrapper label {
 	width: 9ch;
 	text-align: right;
