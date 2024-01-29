@@ -1,3 +1,5 @@
+import { ChainLink, EvolutionDetail } from './types'
+
 export const statNames = new Map<string, string>([
 	['hp', 'HP'],
 	['attack', 'Attack'],
@@ -30,3 +32,29 @@ export const typeColours = new Map<string, string>([
 
 export const capitalize = (str: string) =>
 	str.charAt(0).toUpperCase() + str.slice(1)
+
+export const extractEvolutionNames = (chain: ChainLink): string[] => {
+	let names = [chain.species.name]
+
+	if (chain.evolves_to.length > 0) {
+		names = names.concat(extractEvolutionNames(chain.evolves_to[0]))
+	}
+
+	return names
+}
+
+export const extractEvolutionMethods = (
+	chain: ChainLink,
+	isFirstPokemon = true
+): (EvolutionDetail | null)[] => {
+	let methods: (EvolutionDetail | null)[] = isFirstPokemon ? [null] : []
+
+	if (chain.evolves_to.length > 0) {
+		methods = methods.concat(chain.evolves_to[0].evolution_details[0])
+		methods = methods.concat(
+			extractEvolutionMethods(chain.evolves_to[0], false)
+		)
+	}
+
+	return methods
+}
