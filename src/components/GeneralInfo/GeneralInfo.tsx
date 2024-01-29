@@ -1,4 +1,4 @@
-import PokemonSpecies, { Pokemon } from '../../types'
+import type { Pokemon, PokemonSpecies } from '../../types'
 import { statNames } from '../../util'
 import { AbilityInfo } from '../AbilityInfo/AbilityInfo'
 import { TypeBadge } from '../TypeBadge/TypeBadge'
