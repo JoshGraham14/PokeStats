@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { GeneralInfo } from '../GeneralInfo/GeneralInfo'
 import styles from './PokemonInfo.module.css'
 import type { Pokemon, PokemonSpecies } from '../../types'
+import { EvolutionLine } from '../EvolutionLine/EvolutionLine'
 
 interface Props {
 	url: string
@@ -55,6 +56,7 @@ export const PokemonInfo = (props: Props) => {
 				pokemonDetails={detailedData}
 				isLoadingDetails={detailedIsLoading}
 			/>
+			<EvolutionLine pokemonDetails={detailedData} />
 		</div>
 	)
 }
