@@ -99,6 +99,7 @@ export const SearchBar = (props: Props) => {
 					className={styles.searchInput}
 					onChange={handleChange}
 					value={selected ? capitalize(selected.name) : searchTerm}
+					autoComplete='off'
 				/>
 				<button
 					className={styles.searchBtn}
