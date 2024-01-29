@@ -33,6 +33,11 @@ export interface AbilityDetails {
 	}[]
 }
 
+export interface Type {
+	id: number
+	name: string
+}
+
 export interface Version {
 	name: string
 	url: string
@@ -212,4 +217,53 @@ export interface PokemonSpecies {
 	}[]
 }
 
-export default PokemonSpecies
+export interface Item {
+	id: NumberConstructor
+	name: string
+	sprites: {
+		default: string
+	}
+}
+
+export interface EvolutionDetail {
+	item: Item
+	trigger: {
+		id: number
+		name: string
+	}
+	gender: number
+	held_item: Item
+	known_move: {
+		id: number
+		name: string
+	}
+	known_move_type: Type
+	location: {
+		id: number
+		name: string
+	}
+	min_level: number
+	min_happiness: number
+	min_beauty: number
+	min_affection: number
+	needs_overworld_rain: boolean
+	party_species: PokemonSpecies
+	party_type: Type
+	relative_physical_stats: number
+	time_of_day: string
+	trade_species: PokemonSpecies
+	turn_upside_down: boolean
+}
+
+export interface ChainLink {
+	is_baby: boolean
+	species: PokemonSpecies
+	evolution_details: EvolutionDetail[]
+	evolves_to: ChainLink[]
+}
+
+export interface EvolutionChain {
+	id: number
+	baby_trigger_item: Item
+	chain: ChainLink
+}
