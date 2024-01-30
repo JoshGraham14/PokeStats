@@ -21,15 +21,17 @@ interface Props {
 export const EvolutionLine = (props: Props) => {
 	const { pokemonDetails } = props
 	const url = pokemonDetails?.evolution_chain.url
-	const { data, isLoading, error } = useQuery(url as string, () =>
-		fetchEvolutionLine<EvolutionChain>(url as string)
+	const { data, isLoading, error } = useQuery(
+		[url],
+		() => fetchEvolutionLine<EvolutionChain>(url as string),
+		{ enabled: url !== undefined }
 	)
 	const evolutionNames: PokemonPreview[] = data
 		? extractEvolutionNames(data.chain)
 		: []
 
 	const { data: sprites, isLoading: isLoadingSprites } = useQuery(
-		'evolutionSprites',
+		['evolutionSprites', evolutionNames],
 		() => fetchEvolutionSprites(evolutionNames),
 		{ enabled: evolutionNames.length > 0 }
 	)
@@ -49,21 +51,24 @@ export const EvolutionLine = (props: Props) => {
 	return (
 		<div className={`dashboardContainer ${styles.evolutionLineWrapper}`}>
 			<h3>Evolution Line</h3>
-			{!isLoading && !isLoadingSprites
-				? evolutionNames.map((evolution, index) => {
+
+			{!isLoading && !isLoadingSprites ? (
+				<div className={styles.evolutionInfoWrapper}>
+					{' '}
+					{evolutionNames.map((evolution, index) => {
 						const evolutionMethod = evolutionMethods[index]
 						const currentSprite = sprites ? sprites[index] : null
 						return (
 							<div
-								className={styles.rowWrapper}
 								key={evolution.name}
+								className={styles.evoWrapper}
 							>
 								<EvolutionMethod method={evolutionMethod} />
-								<div className={styles.pokemonWrapper}>
+								<div>
 									<img
 										className={styles.sprite}
 										src={currentSprite?.front_default}
-										alt={`${name}'s front sprite`}
+										alt={`${evolution.name}'s front sprite`}
 									/>
 									<p className={styles.pokemonName}>
 										{capitalize(evolution.name)}
@@ -71,9 +76,9 @@ export const EvolutionLine = (props: Props) => {
 								</div>
 							</div>
 						)
-				  })
-				: null}
-			<div></div>
+					})}
+				</div>
+			) : null}
 		</div>
 	)
 }
