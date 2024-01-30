@@ -19,8 +19,24 @@
 	image-rendering: pixelated;
 }
 
+@media (max-width: 500px) {
+	.spriteContainer {
+		max-height: 30rem !important;
+	}
+
+	.spriteContainer img {
+		width: 10rem;
+	}
+
+	.skeletonWrapper {
+		min-height: 20rem;
+	}
+}
+
 .skeletonFlex {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	gap: 3rem;
 	margin-top: 1rem;
 	margin-bottom: 2rem;
