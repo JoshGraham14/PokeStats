@@ -18,8 +18,6 @@ export const EvolutionMethod = (props: Props) => {
 
 	let result: JSX.Element | null = null
 
-	console.log(method)
-
 	if (method === null) {
 		return null
 	}
