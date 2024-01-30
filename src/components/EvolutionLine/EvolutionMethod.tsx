@@ -135,6 +135,11 @@ export const EvolutionMethod = (props: Props) => {
 	}
 
 	if (method) {
-		return <div className={styles.evolutionMethod}>{result}</div>
+		return (
+			<div className={styles.evolutionMethod}>
+				<img src='/src/assets/svg/right-arrow.svg' alt='Down arrow' />
+				{result}
+			</div>
+		)
 	}
 }

@@ -1,16 +1,15 @@
 .evolutionLineWrapper {
-	max-height: 35rem !important;
+	max-height: 15rem !important;
 }
 
-.rowWrapper {
-	/* position: relative; */
-	/* background-color: rgb(236, 161, 32); */
+.evolutionInfoWrapper {
 	display: flex;
-	align-items: center;
-	justify-content: space-around;
+	gap: 2em;
 }
 
-.pokemonWrapper {
+.evoWrapper {
+	display: flex;
+	gap: 2em;
 }
 
 .sprite {
@@ -32,7 +31,19 @@
 }
 
 .evolutionMethod {
-	font-weight: 500;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-style: oblique;
+	margin: 1em;
+	max-width: 10rem;
+}
+
+.evolutionMethod img {
+	width: 2rem;
+	height: 2rem;
+	margin-bottom: 1rem;
 }
 
 .evolutionMethod p {
