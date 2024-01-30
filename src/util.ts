@@ -35,8 +35,15 @@ export const capitalize = (str: string) =>
 		.map(part => part.charAt(0).toUpperCase() + part.slice(1))
 		.join('-')
 
-export const extractEvolutionNames = (chain: ChainLink): string[] => {
-	let names = [chain.species.name]
+export const extractEvolutionNames = (
+	chain: ChainLink
+): { name: string; url: string }[] => {
+	let names = [
+		{
+			name: chain.species.name,
+			url: `https://pokeapi.co/api/v2/pokemon/${chain.species.name}`,
+		},
+	]
 
 	if (chain.evolves_to.length > 0) {
 		names = names.concat(extractEvolutionNames(chain.evolves_to[0]))
