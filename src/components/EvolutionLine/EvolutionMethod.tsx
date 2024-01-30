@@ -1,5 +1,6 @@
 import { EvolutionDetail } from '../../types'
 import { capitalize } from '../../util'
+import styles from './EvolutionLine.module.css'
 
 interface Props {
 	method: EvolutionDetail | null
@@ -32,7 +33,7 @@ export const EvolutionMethod = (props: Props) => {
 		result = (
 			<>
 				{result}
-				<p>at {capitalize(method.location.name)}</p>
+				<p>&nbsp;at {capitalize(method.location.name)}</p>
 			</>
 		)
 	}
@@ -41,7 +42,7 @@ export const EvolutionMethod = (props: Props) => {
 		result = (
 			<>
 				{result}
-				<p>While holding console upside down</p>
+				<p>&nbsp;While holding console upside down</p>
 			</>
 		)
 	}
@@ -50,7 +51,7 @@ export const EvolutionMethod = (props: Props) => {
 		result = (
 			<>
 				{result}
-				<p>Friendship is high</p>
+				<p>&nbsp;Friendship is high</p>
 			</>
 		)
 	}
@@ -59,7 +60,7 @@ export const EvolutionMethod = (props: Props) => {
 		result = (
 			<>
 				{result}
-				<p>Affection is high</p>
+				<p>&nbsp;Affection is high</p>
 			</>
 		)
 	}
@@ -68,7 +69,7 @@ export const EvolutionMethod = (props: Props) => {
 		result = (
 			<>
 				{result}
-				<p>Beauty is high</p>
+				<p>&nbsp;Beauty is high</p>
 			</>
 		)
 	}
@@ -110,7 +111,7 @@ export const EvolutionMethod = (props: Props) => {
 		result = (
 			<>
 				{result}
-				<p>Holding {capitalize(method.held_item.name)}</p>
+				<p>&nbsp;holding {capitalize(method.held_item.name)}</p>
 			</>
 		)
 	}
@@ -119,7 +120,7 @@ export const EvolutionMethod = (props: Props) => {
 		result = (
 			<>
 				{result}
-				<p>During {capitalize(method.time_of_day)}</p>
+				<p>&nbsp;during {method.time_of_day}</p>
 			</>
 		)
 	}
@@ -128,12 +129,12 @@ export const EvolutionMethod = (props: Props) => {
 		result = (
 			<>
 				{result}
-				<p>While it's raining</p>
+				<p>&nbsp;while it's raining</p>
 			</>
 		)
 	}
 
 	if (method) {
-		return <>{result}</>
+		return <div className={styles.evolutionMethod}>{result}</div>
 	}
 }
