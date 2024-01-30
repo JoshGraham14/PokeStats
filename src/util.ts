@@ -29,9 +29,11 @@ export const typeColours = new Map<string, string>([
 	['steel', '#6FB7DD'],
 	['water', '#2B99FF'],
 ])
-
 export const capitalize = (str: string) =>
-	str.charAt(0).toUpperCase() + str.slice(1)
+	str
+		.split('-')
+		.map(part => part.charAt(0).toUpperCase() + part.slice(1))
+		.join('-')
 
 export const extractEvolutionNames = (chain: ChainLink): string[] => {
 	let names = [chain.species.name]
