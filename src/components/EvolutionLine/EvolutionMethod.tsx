@@ -1,3 +1,4 @@
+import { useWindowSize } from '../../hooks'
 import { EvolutionDetail } from '../../types'
 import { capitalize } from '../../util'
 import styles from './EvolutionLine.module.css'
@@ -16,6 +17,7 @@ interface Props {
 
 export const EvolutionMethod = (props: Props) => {
 	const { method } = props
+	const [width] = useWindowSize()
 
 	let result: JSX.Element | null = null
 
@@ -137,7 +139,12 @@ export const EvolutionMethod = (props: Props) => {
 	if (method) {
 		return (
 			<div className={styles.evolutionMethod}>
-				<img src='/src/assets/svg/right-arrow.svg' alt='Down arrow' />
+				<img
+					src={`/src/assets/svg/${
+						width <= 500 ? 'down' : 'right'
+					}-arrow.svg`}
+					alt='Down arrow'
+				/>
 				{result}
 			</div>
 		)

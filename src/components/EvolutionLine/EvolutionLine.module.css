@@ -4,6 +4,7 @@
 
 .evolutionInfoWrapper {
 	display: flex;
+	place-content: center;
 	gap: 2em;
 }
 
@@ -48,4 +49,28 @@
 
 .evolutionMethod p {
 	margin: 0;
+}
+
+@media (max-width: 500px) {
+	.evolutionLineWrapper {
+		max-height: 50rem !important;
+	}
+
+	.evolutionInfoWrapper {
+		flex-direction: column;
+	}
+
+	.evolutionMethod {
+		flex-direction: row;
+	}
+
+	.evolutionMethod img {
+		margin-bottom: 0rem;
+	}
+
+	.evoWrapper {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }
