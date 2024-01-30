@@ -1,4 +1,4 @@
-import type { APIResponse, EvolutionChain, PokemonPreview } from './types'
+import type { APIResponse, PokemonPreview, Pokemon, Sprites } from './types'
 
 export const fetchAllPokemon = async (): Promise<PokemonPreview[]> => {
 	const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=2000')
@@ -29,4 +29,19 @@ export const fetchEvolutionLine = async <EvolutionChain>(
 	}
 	const data: EvolutionChain = await response.json()
 	return data
+}
+
+export const fetchEvolutionSprites = async (
+	evolutionChain: PokemonPreview[]
+): Promise<Sprites[]> => {
+	const sprites: Sprites[] = []
+
+	if (evolutionChain.length === 0) {
+		return []
+	}
+
+	for (const evolution of evolutionChain) {
+		sprites.push((await fetchResource<Pokemon>(evolution.url)).sprites)
+	}
+	return sprites
 }
