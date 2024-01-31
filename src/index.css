@@ -17,6 +17,8 @@
 	--search-bar-width: 100%;
 	--border-width: 0.15em;
 
+	--filter: brightness(0) saturate(100%) invert(100%);
+
 	color-scheme: light dark;
 	color: var(--clr-foreground);
 	background-color: var(--clr-background);
@@ -25,6 +27,16 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--clr-foreground: hsl(0, 0%, 20%);
+		--clr-background: hsl(0, 0%, 90%);
+		--clr-input-bg: hsl(0, 0%, 100%);
+		--clr-active: hsl(0, 57%, 80%);
+		--filter: brightness(0) saturate(100%);
+	}
 }
 
 body {
@@ -154,14 +166,5 @@ ul > li:not(:last-child)::after {
 @media (max-width: 500px) {
 	.dashboardContainer {
 		width: 100%;
-	}
-}
-
-@media (prefers-color-scheme: light) {
-	:root {
-		--clr-foreground: hsl(0, 0%, 20%);
-		--clr-background: hsl(0, 0%, 90%);
-		--clr-input-bg: hsl(0, 0%, 100%);
-		--clr-active: hsl(0, 57%, 80%);
 	}
 }
