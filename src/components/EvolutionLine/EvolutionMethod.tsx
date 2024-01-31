@@ -145,7 +145,7 @@ export const EvolutionMethod = (props: Props) => {
 					}-arrow.svg`}
 					alt='Down arrow'
 				/>
-				{result}
+				<div>{result}</div>
 			</div>
 		)
 	}
