@@ -2,6 +2,10 @@
 	max-height: 15rem !important;
 }
 
+.evolutionLineWrapper h3 {
+	margin-bottom: 0;
+}
+
 .evolutionInfoWrapper {
 	display: flex;
 	place-content: center;
