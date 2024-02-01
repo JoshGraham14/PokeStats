@@ -1,4 +1,4 @@
-import React, { useState, RefObject, useLayoutEffect } from 'react'
+import { useState, RefObject, useEffect, useLayoutEffect } from 'react'
 
 export const useKeyPress = (
 	targetKey: string,
@@ -18,7 +18,7 @@ export const useKeyPress = (
 		}
 	}
 
-	React.useEffect(() => {
+	useEffect(() => {
 		ref.current?.addEventListener('keydown', downHandler)
 		ref.current?.addEventListener('keyup', upHandler)
 
